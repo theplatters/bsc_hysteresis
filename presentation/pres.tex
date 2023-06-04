@@ -115,12 +115,22 @@
 \maketitle
 
 \begin{frame}
-\frametitle{First Model}
+\frametitle{Unrestrained Model}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Second Model}
+\frametitle{Restrained Model}
+For the energy density $W$ in a magnetic material the equations \begin{align} 
+    &W = \frac{1}{2} \mu_0 h^2 + U(m) & \text{and} \label{eq:density} \\
+    &\dot W = \langle h, \dot b \rangle - \|r\dot m\| \label{eq:dtdensity}
+\end{align}
+hold, with $b = \mu_0(h + m)$ being the magnetic induction. Differentiating \eqref{eq:density} and combing it with \eqref{eq:dtdensity} yields 
+\begin{align}
+ \mu_0 \langle h,\dot h \rangle + \langle \frac{\partial U}{\partial m}(m), \dot m \rangle &= \mu_0 \langle h,\dot h + \dot m \rangle - \|r \dot m\| \Leftrightarrow \\
+ \langle h - \frac{1}{\mu_0} \frac{\partial U}{\partial m}(m), \dot m \rangle &= \|\frac{r}{\mu_0} \dot m \|
+\end{align}
+
 
 \end{frame}
 
