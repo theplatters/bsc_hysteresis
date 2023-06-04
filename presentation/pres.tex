@@ -1,0 +1,142 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !BIB program = biber
+%%
+%% The above lines help editors like TeXstudio to automatically choose the right tools
+%% to compile your LaTeX source file. If your tool does not support these magic comments,
+%% you will need to make appropriate manual choices.
+%%
+%% You can safely use "pdflatex" instead of "xelatex" if you prefer the pdfLaTeX toolchain.
+%% However, pdfLaTeX will not be able to deliver the professional font experience that you
+%% will get with XeLaTeX.
+%%
+%% _Important_: These magic comments should be on the first lines of your source file.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Document class: This is a LaTeX beamer presentation.
+%%
+\documentclass[utf8,aspectratio=169,ngerman,english]{beamer}
+
+\usetheme[darkmode,fancyfonts,totalframenumber,mathastext.TNF]{jku}
+
+%%
+%% Note that `nosectionpage' automatically sets `nosubsectionpage' and `nosubsubsectionpage'.
+%% You could still e.g. show only subsubsection pages by using `nosectionpage,subsubsectionpage'.
+%%
+%% Space-efficient monospace font options (requires XeTeX):
+%%  * compactmono   ... Use condensed fixed-width font everywhere.
+%%  * nocompactverb ... Do not use condensed fixed-width font for verbatim and listings.
+%%
+%% Style-breaking options:
+%%  * nojkufooter    ... Do not insert JKU/partner logos into the frame footer.
+%%  * nofooter       ... Do not display a frame footer.
+%%  * noimprint      ... Do not insert imprint on title pages.
+%%  * frametitlecaps ... Set frame titles in capital letters (like in eariler theme versions).
+%%  * nofancyfonts   ... Do not use custom TTF fonts with XeTeX / supress pdfLaTeX warning.
+%%  * mac            ... Use adapted color palette for screen display on Mac.
+%%
+%% Experimental options:
+%%  * mathastext ... Use standard document fonts (and default to sans-serif font) in math mode
+%%
+%% Advanced options:
+%%  * nooptpackages     ... Do not load additional convenience packages (which are only there
+%%                          to provide interoperability to the behavior of previous versions of
+%%                          this theme but are not actually required for the current version).
+%%  * logopath={<path>} ... Set the path where the theme can find its own logo resources. This
+%%                          should typically be a relative path and the default is `./logos'.
+%%  * fontpath={<path>} ... Set the path where the theme can find its own font resources. This
+%%                          should typically be a relative path and the default is `./fonts'.
+%%
+%% Hint: Boolean options can be used in the forms `option' or `option=true' the enable the
+%% option and `nooption' or `option=false' to disable the option.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% This is the place where you can load additional packages. If you want to load
+%% a package `booktabs', you would use the command `\usepackage{booktabs}'.
+%%
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+%\usepackage{pifont}
+%\newcommand{\cmark}{\ding{51}}
+%\newcommand{\xmark}{\ding{55}}
+%\newcommand{\rarr}{\ding{212}}
+%\newcommand{\larr}{\raisebox{\depth}{\rotatebox{180}{\rarr}}}
+\usepackage{csquotes}
+\usepackage[backend=biber,citestyle=authoryear,sortcites=true,style=ACM-Reference-Format]{biblatex}
+
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Set reasonable defaults for biblatex.
+%%
+
+\preto{\bibsetup}{\providecommand*{\insertbiblabel}{}}
+\DeclareFieldFormat*{title}{#1}
+\DeclareFieldFormat*{booktitle}{#1}
+\DeclareFieldFormat*{journaltitle}{#1}
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+
+%% Add bibligraphy source files
+\addbibresource{references.bib}
+
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\title{On energy based vector-hysteresis models}
+
+%% Command \subtitle[short subtitle]{subtitle}: sets the presentation subtitle
+\subtitle{Bachelor-Thesis presentation}
+
+%% Command \author[short authors]{authors}: sets the presentation authors (multiple authors may be separated with \and)
+\author{Franz Scharnreitner}
+
+
+%% Command \institutecode{CODE}: sets the institute abbreviation/initials (used to load the institute logo file, if present)
+%\institutecode{INS}
+
+%% Command \date[short date]{date}: sets the presentation date (short date is used in the footer by default)
+\date{\today}
+
+\maketitle
+
+\begin{frame}
+\frametitle{First Model}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Second Model}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Equivalence}
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Code overview}
+
+\end{frame}
+
+
+
+
+
+
+\end{document}
