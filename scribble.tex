@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+%\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\date{}
+
+\setlength\parindent{0em}
+
+
+\def\dx{\partial_x}
+\def\dy{\partial_y}
+\def\dz{\partial_z}
+\def\dt{\partial_t}
+\def\RR{\mathbb{R}}
+\def\div{\operatorname{div}}
+\def\curl{\operatorname{curl}}
+
+\begin{document}
+\textbf{Erste Herangehensweise:}
+\begin{align} \label{eq:lavet}
+    m = \arg\min_m U(m) - \langle h,m\rangle + \chi |m - m_p|, 
+\end{align}
+ \\
+\textbf{Zweite Herangehensweise:}
+\begin{align} \label{eq:prigozhin}
+    h_r = \arg\min_{u \in K(h)} S(u) - \langle m_p, u\rangle,
+\end{align}
+with $S(u)$ defined as the Legendre-Fenchel conjugate function of $\frac{1}{\mu_0} \frac{\partial U}{\partial m}(m)$, which simply means that
+\begin{align} \label{eq:duality}
+    \frac{\partial S}{\partial u}(h_r) = m \quad \Leftrightarrow \quad h_r = \frac{\partial U}{\partial m}(m).
+\end{align}
+The set $K(h)$ over which is minimized is given by 
+\begin{align} \label{eq:Kh}
+    K(h) = \{ u : |u-h| \le \chi\}.
+\end{align}
+\\
+\textbf{Äquivalenzbeweis?}
+\color{blue}
+%Nach \cite{Prigozhin} ist $$S(u) = \int_0^{\|u\|} M_{an}(s) \, ds$$
+$\Leftarrow$
+
+Sei $h_r$ so, dass $$h_r = \arg\min\limits_{u \in K(h)} S(u) - \langle m_p, u \rangle$$ erfüllt ist und außerdem $h_r \in \mathring K(h)$.\\
+Dann gilt $\frac{\partial S}{\partial u}(h_r) - \frac{\partial}{\partial u} \langle m_p , u \rangle = 0 = m - m_p$.
+Wegen \eqref{eq:duality} gilt also $$\frac{\partial U}{\partial m}(m) - \frac{\partial}{\partial m} \langle h,m \rangle = h_r - h$$
+Wir müssen nun das Subdifferential der Norm im Punkt 0 ausrechnen. (Wegen $m = m_p$). Wir entnehmen aus \cite{rockafellar1997convex}, dass für $\partial f(x) = |x|$ gilt: $$\partial f(0) = \{x : |x| \leq 1 \}$$ Es gilt außerdem: $|h - h_r| < \chi$. Damit liegt $\chi^{-1} (h_r - h) \in \partial f(0)$ und die Optimalitätsbedingung  $$\exists x \in \partial |m - m_p|: \frac{\partial U}{\partial m}(m) - \frac{\partial}{\partial m} \langle h,m \rangle + \chi x = 0$$ist erfüllt.
+\\
+Sei nun $$h_r = \arg\min_{u \in K(h)} S(u) - \langle m_p , u \rangle$$ mit $h_r \in \partial K(h)$. Dann gilt \begin{align}
+    |h_r - h| = \chi
+\end{align}
+und wie vorhin schon $\frac{\partial U}{\partial m}(m) - \frac{\partial}{\partial m} \langle h,m \rangle = h_r - h$ Es gilt also zu zeigen: \begin{align}
+    h_r -h +  \frac{\chi}{|m - m_p|} (m-m_p) = 0
+\end{align}.
+
+Wir benutzen dazu eine Lagrangefunktion $L(u,\lambda) = S(u) - \langle m_p, u\rangle +  \frac \lambda \chi (|u - h| - 1)$
+Es gilt dann mit dem Satz von Lagrange, dass im Punkt $h_r$ gilt $\exists \tilde \lambda \frac {\partial}{\partial u}L(h_r,\lambda) = 0$
+Also $$m - m_p + \frac {\tilde \lambda}{\chi} (\frac{h_r - h}{|h_r - h|}) = 0 \Leftrightarrow m - m_p = - \frac {\tilde \lambda}{\chi} (\frac{h_r - h}{|h_r - h|})$$
+
+Dies kann nun in die linke Seite von \eqref{6} eingesetzt werden und  mit $|h_r - h| = \chi$ erhält man: $$(h_r - h) - \frac{\chi}{|\frac{\tilde \lambda}{\chi}| |\frac{h_r - h}{|h_r - h|}|} \frac{\tilde \lambda}{\chi} \frac{(h_r - h)}{|h_r - h|} = (h_r - h) - \text{sign}(\tilde{\lambda})(h_r - h) = 0$$
+
+\textbf{Code}
+The code can be found here: https://github.com/theplatters/Bachelorarbeit
+\begin{thebibliography}{10}
+
+\bibitem{Lavet}
+V. François-Lavet, F. Henrotte, L. Stainier, L. Noels, and C. Geuzaine.
+\newblock An energy-based variational model of ferromagnetic hysteresis for finite element computations.
+\newblock {\em J. Comput. Appl. Math.}, vol. 246, pp. 243–250, 2013.
+
+\bibitem{Prigozhin}
+L. Prigozhin1, V. Sokolovsky, J. W. Barrett, and S. E. Zirka. 
+\newblock On the energy-based variational model
+for vector magnetic hysteresis.
+\newblock {\em IEEE Trans. Magn.}, vol.~52, pp.~7301211, 2016.
+
+\bibitem{Moreau}
+J. J. Moreau. 
+\newblock Application of convex analysis to the treatment of elastoplastic systems. 
+\newblock In: {\em Applications of Methods of Functional Analysis to Problems in Mechanics (Lecture Notes in Mathematics)}, vol. 503, 
+P. Germain and B. Nayroles, Eds.,
+Springer-Verlag, Berlin, Germany, 1976, pp. 56–89.
+
+\bibitem{kaltenbacher}
+M. Kaltenbacher, K. Roppert, L. D. Domenig, and H Egger.
+\newblock Comparison of Energy Based Hysteresis Models.
+\newblock {\em COMPUMAG 2022}, pp. 1-4. %\href{https://doi.org/10.1109/COMPUMAG55718.2022.9827509}{doi:10.1109/COMPUMAG55718.2022.9827509}
+\end{thebibliography}
+
+\bibliography{lib}
+
+\end{document}

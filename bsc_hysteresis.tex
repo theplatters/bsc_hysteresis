@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+%\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+
+\date{}
+
+\setlength\parindent{0em}
+
+
+\def\dx{\partial_x}
+\def\dy{\partial_y}
+\def\dz{\partial_z}
+\def\dt{\partial_t}
+\def\RR{\mathbb{R}}
+\def\div{\operatorname{div}}
+\def\curl{\operatorname{curl}}
+
+\begin{document}
+%\maketitle
+
+
+\begin{center}
+    \Large \textbf{Bachelor's-Thesis Project}
+\end{center}
+
+\bigskip 
+\bigskip 
+\bigskip 
+
+\textbf{Topic:} 
+On energy-based vector hysteresis models
+
+\medskip 
+
+\textbf{Student:} Franz Scharnreiter
+
+\medskip 
+
+\textbf{Supervisors:}
+Michael Mandlmayr, Herbert Egger
+
+
+\bigskip 
+
+\paragraph{Scope.}
+
+We review the two hysteresis models of \cite{Lavet} and \cite{Prigozhin}, establish their equivalence, and investigate their efficient numerical realization. 
+%
+Both models are based on a magneto-quasistatic consideration with magnetic energy density given by 
+\begin{align} \label{eq:energy}
+E(b,m) = \frac{\mu_0}{2} |h|^2 + U(m),
+\end{align}
+%
+with $U(m)$ the energy stored in the magnetization $m$, and magnetic field strength
+\begin{align} \label{eq:h}
+    h = \frac{1}{\mu_0} b - m.
+\end{align}
+Here $b$ denotes the magnetic flux density, and $\mu_0$ the permeability of vacuum. 
+%
+
+\medskip 
+
+\textbf{Note.}
+All the following considerations concern a single material point.
+%
+Thus $m$, $h$, $b$ are vectors in $\RR^d$ in dimension $d=2$ or $d=3$.
+
+\bigskip
+
+\textbf{Approach~1.}
+%
+The constitutive model in \cite{Lavet} is based on the variational principle
+\begin{align} \label{eq:lavet}
+    m = \arg\min_m U(m) - \langle h,m\rangle + \chi |m - m_p|, 
+\end{align}
+with $\langle \cdot,\cdot\rangle$ denoting the Euclidean inner product, $\chi>0$ a given parameter, and $m_p \in \RR^d$ the given magnetization of the "previous time step".
+%
+If $U(\cdot)$ is assumed strictly convex, this uniquely determines $m$ as a function of $h$ and $m_p$ consequently allows to express $m=m(h,m_p)$ and $b=b(h,m_p)$ using \eqref{eq:h}. 
+%
+
+
+\bigskip 
+
+\textbf{Approach~2.}
+%
+In \cite{Prigozhin}, the following alternative problem is proposed:
+\begin{align} \label{eq:prigozhin}
+    h_r = \arg\min_{u \in K(h)} S(u) - \langle m_p, u\rangle,
+\end{align}
+with $S(u)$ defined as the Legendre-Fenchel conjugate function of $\frac{1}{\mu_0} \frac{\partial U}{\partial m}(m)$, which simply means that
+\begin{align} \label{eq:duality}
+    \frac{\partial S}{\partial u}(h_r) = m \quad \Leftrightarrow \quad h_r = \frac{\partial U}{\partial m}(m).
+\end{align}
+The set $K(h)$ over which is minimized is given by 
+\begin{align} \label{eq:Kh}
+    K(h) = \{ u : |u-h| \le \chi\}.
+\end{align}
+%
+Once $h_r$ is found, we can determine $m$ as a function of $h_r$ (and of $h$ and $m_p$) using \eqref{eq:duality}, and then find $b$ as a function of $h$
+and $m_p$ using \eqref{eq:h}.
+%
+Both models are motivated by an analogy with mechanics, i.e., a model for dry friction; see~\cite{Moreau}. 
+% \textbf{Numerical methods for Approach 1}
+% The objective in \eqref{eq:lavet} is necessarily differentiable in every (interesting) point (eg. $m=m_p$). 
+% Therefore the classical smooth optimization theory is not applicable.
+% There are basically two possibilities 
+% \begin{enumerate}
+%     \item smooth the non-smooth part and apply a smooth optimization method.
+%     \item use an optimization algorithm that does not need $C_1$.
+% \end{enumerate}
+
+% Moreover, one can use
+% \begin{enumerate}
+% \item first order methods (gradient based) 
+% \item second order(Hessian) methods (Newton-type)
+% \end{enumerate}
+% The advantage of the first is that each step is very cheap, while the advantage of the second is the local (quadratic) superlinear convergence.
+
+% The canonical first order approach to solving \eqref{eq:lavet} are definitely  proximal gradient methods.
+
+% Relevant second order methods for solving \eqref{eq:lavet} are the semismooth Newton method and the semismooth$^*$ Newton method.
+%
+
+\newpage
+
+\textbf{Goals of the project.}
+%
+The first goal of the project is to establish the equivalence of the two models, i.e., to show that for given $h$ and $m_p$, we arrive at the same $b$ in the end.
+%
+After doing this, we investigate and compare the numerical solution of both approaches. Some hints in this direction and appropriate test problems can be found in \cite{Lavet,Prigozhin}. 
+%
+Of particular interest will be to identify the most efficient and stable approach for computing $b=b(h,m_p)$ in dimension $d=3$.
+
+\bigskip 
+
+\textbf{Outlook.}
+%
+The computation of magnetic hysteresis effects is of great practical importance for the simulation and optimization of electric motors and transformers.  
+%
+At the moment, energy losses due to hysteresis are estimated after the simulation, which is performed without consideration of hysteresis. 
+%
+Results of this project might thus contribute to a further improvement of the accuracy of magnetic simulation models and their capability of predicting hysteresis losses.
+
+
+\begin{thebibliography}{10}
+
+\bibitem{Lavet}
+V. François-Lavet, F. Henrotte, L. Stainier, L. Noels, and C. Geuzaine.
+\newblock An energy-based variational model of ferromagnetic hysteresis for finite element computations.
+\newblock {\em J. Comput. Appl. Math.}, vol. 246, pp. 243–250, 2013.
+
+\bibitem{Prigozhin}
+L. Prigozhin1, V. Sokolovsky, J. W. Barrett, and S. E. Zirka. 
+\newblock On the energy-based variational model
+for vector magnetic hysteresis.
+\newblock {\em IEEE Trans. Magn.}, vol.~52, pp.~7301211, 2016.
+
+\bibitem{Moreau}
+J. J. Moreau. 
+\newblock Application of convex analysis to the treatment of elastoplastic systems. 
+\newblock In: {\em Applications of Methods of Functional Analysis to Problems in Mechanics (Lecture Notes in Mathematics)}, vol. 503, 
+P. Germain and B. Nayroles, Eds.,
+Springer-Verlag, Berlin, Germany, 1976, pp. 56–89.
+
+\bibitem{kaltenbacher}
+M. Kaltenbacher, K. Roppert, L. D. Domenig, and H Egger.
+\newblock Comparison of Energy Based Hysteresis Models.
+\newblock {\em COMPUMAG 2022}, pp. 1-4. %\href{https://doi.org/10.1109/COMPUMAG55718.2022.9827509}{doi:10.1109/COMPUMAG55718.2022.9827509}
+\end{thebibliography}
+
+
+
+\end{document}

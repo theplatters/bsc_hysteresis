@@ -1,0 +1,155 @@
+\documentclass[12pt]{article}
+%\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+
+\usepackage{biblatex}
+\addbibresource{lib.bib}
+
+
+\usepackage{amsthm}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \littletaller % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\newcommand{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}
+
+\date{}
+
+\setlength\parindent{0em}
+
+\newtheorem{theorem}{Theorem}
+
+\def\dx{\partial_x}
+\def\dy{\partial_y}
+\def\dz{\partial_z}
+\def\dt{\partial_t}
+\def\RR{\mathbb{R}}
+\def\div{\operatorname{div}}
+\def\curl{\operatorname{curl}}
+\def\grad{\operatorname{grad}}
+
+\begin{document}
+%\maketitle
+
+
+\begin{center}
+    \Large \textbf{Bachelor's-Thesis Project}
+\end{center}
+
+\bigskip 
+\bigskip 
+\bigskip 
+
+\textbf{Topic:} 
+On energy-based vector hysteresis models
+
+\medskip 
+
+\textbf{Student:} Franz Scharnreiter
+
+\medskip 
+
+\textbf{Supervisors:}
+Michael Mandlmayr, Herbert Egger
+
+
+\bigskip 
+
+\paragraph{Scope.}
+
+We review the two hysteresis models of \cite{Lavet} and \cite{Prigozhin}, establish their equivalence, and investigate their efficient numerical realization. 
+%
+Both models are based on a magneto-quasistatic consideration with magnetic energy density given by 
+\begin{align} \label{eq:energy}
+E(b,m) = \frac{\mu_0}{2} |h|^2 + U(m),
+\end{align}
+%
+with $U(m)$ the energy stored in the magnetization $m$, and magnetic field strength
+\begin{align} \label{eq:h}
+    h = \frac{1}{\mu_0} b - m.
+\end{align}
+Here $b$ denotes the magnetic flux density, and $\mu_0$ the permeability of vacuum. 
+%
+
+\medskip 
+
+\textbf{Note.}
+All the following considerations concern a single material point.
+%
+Thus $m$, $h$, $b$ are vectors in $\RR^d$ in dimension $d=2$ or $d=3$.
+
+\bigskip
+
+\section{Models}
+
+\subsection{First Model}
+The constitutive model in \cite{Lavet} is based on the variational principle
+\begin{align} \label{eq:lavet}
+    m = \arg\min_m U(m) - \langle h,m\rangle + \chi |m - m_p|, 
+\end{align}
+with $\langle \cdot,\cdot\rangle$ denoting the Euclidean inner product, $\chi>0$ a given parameter, and $m_p \in \RR^d$ the given magnetization of the "previous time step".
+%
+If $U(\cdot)$ is assumed strictly convex, this uniquely determines $m$ as a function of $h$ and $m_p$ consequently allows to express $m=m(h,m_p)$ and $b=b(h,m_p)$ using \eqref{eq:h}. 
+%
+
+\subsection{Second Model}
+%
+In \cite{Prigozhin}, the following alternative problem is proposed:
+\begin{align} \label{eq:prigozhin}
+    h_r = \arg\min_{u \in K(h)} S(u) - \langle m_p, u\rangle,
+\end{align}
+with $S(u)$ defined as the Legendre-Fenchel conjugate function of $\frac{1}{\mu_0} \frac{\partial U}{\partial m}(m)$, which simply means that
+\begin{align} \label{eq:duality}
+    \frac{\partial S}{\partial u}(h_r) = m \quad \Leftrightarrow \quad h_r = \frac{\partial U}{\partial m}(m).
+\end{align}
+The set $K(h)$ over which is minimized is given by 
+\begin{align} \label{eq:Kh}
+    K(h) = \{ u : |u-h| \le \chi\}.
+\end{align}
+%
+Once $h_r$ is found, we can determine $m$ as a function of $h_r$ (and of $h$ and $m_p$) using \eqref{eq:duality}, and then find $b$ as a function of $h$
+and $m_p$ using \eqref{eq:h}.
+%
+Both models are motivated by an analogy with mechanics, i.e., a model for dry friction; see~\cite{Moreau}. 
+
+\subsection{Equivalence}
+
+\begin{theorem}
+The two proposed models are equivalent in the sense that if $\bar m$ minimizes the unrestrained model, then $h_r = \frac{\partial U}{\partial m}(\bar m)$ minimizes the restrained problem and inversely if $h_r$ minimizes the restrained problem, then $\bar m = \frac{\partial S}{\partial u}(h_r)$ minimizes the unrestrained problem.
+\end{theorem}
+
+\begin{proof}
+Let $\mathcal L_\lambda(u) = S(u) - \langle u,m_p \rangle + \lambda(\|u - h\| - \chi)$ be the Lagragian of the restrained problem. 
+Let $h_r$ be a minimizer of the restrained problem. Then there exists $\bar \lambda \geq 0$, so that the following conditions holds:
+\begin{align}\label{eq:restictions}
+    &\bar \lambda (\|h_r - h\| - \chi) = 0
+\end{align}
+\begin{align}\label{eq:lagrange}
+    0 = \frac{\partial \mathcal L_{\bar \lambda}}{\partial u}(h_r) = \frac{\partial S}{\partial u}(h_r) - m_p + \bar \lambda \frac{h_r - g}{\|h_r - h\|} = m - m_p +\bar \lambda\frac{h_r -  h}{\|h_r - h\|}
+\end{align}
+The last equality holds, because of the Legendre-Fenchel property. 
+First assume $\lambda = 0$, then from \eqref{eq:lagrange} it follows, that $m-m_p = 0$. Also $\|\frac{\partial U}{\partial m}(\bar m) - h\| =\|h_r - h\| \leq \chi$ follows directly from the Legendre Fenchel property and the constraints. By combining these two properties we get that the optimality condition $\frac{\partial U}{\partial m}(\bar m) - h \in \partial \|\bar m - m_p\|$ is indeed fulfilled, because $\partial \|0\| = \{x \colon \|x\| \leq 1\}$
+Now let $\|h_r - h\| = \chi$. Inserting into \eqref{eq:lagrange} yields .$$m - m_p = - \frac{\lambda}{\chi}(h_r - h)$$
+Inserting into the optimality condition yields $\frac{\partial U}{\partial m} - h - \chi (\frac{\lambda}{\chi} \frac{h_r - h}{\|\frac{\lambda}{\chi} (h_r - h) \|}) = h_r  - h - (h_r - h) = 0$. So the optimality condition of the unrestrained problem is indeed fulfilled.
+
+Conversely, let $\bar m$ be a minimizer of the unrestrained problem and $h_r = \frac{\partial U}{\partial m}(\bar m)$. Then the optimality condition holds. So \begin{equation}\label{eq:optimality}
+    \frac{\partial U}{\partial m}(\bar m) - h = - \chi \partial\|\bar m - m_p\|
+\end{equation}
+Assume $\bar m = m_p$, then for $\lambda = 0$, we get that $\mathcal L_0(h_r) = \frac{\partial S}{\partial u}(h_r) - m_p = m - m_p = 0$
+Now let $m \neq m_p$, then the subdifferential only contains the derivative, and out of \eqref{eq:optimality} with the use of the Legendre-Fenchel conjugate one get's \begin{equation}
+   \frac{\partial U}{\partial m}(\bar m) - h = h_r - h = - \chi \frac{\bar m - m_p}{\|\bar m - m_p\|}
+\end{equation}
+So $\|h_r - h\| = \chi$, i.e \eqref{eq:restictions} is fulfilled for any $\lambda > 0$.  Also $$\mathcal L_{\|m - m_p\|}(h_r) =\bar m - m_p - \chi \|\bar m - m_p\|\frac{\bar m - m_p}{\|\bar m - m_p\|} (\chi \|\frac{\bar m - m_p}{\|\bar m - m_p\|}\|)^{-1} = 0$$
+\end{proof}
+
+\printbibliography
+
+\end{document}
