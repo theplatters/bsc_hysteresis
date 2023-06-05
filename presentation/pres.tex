@@ -22,7 +22,7 @@
 %%
 \documentclass[utf8,aspectratio=169,ngerman,english]{beamer}
 
-\usetheme[darkmode,fancyfonts,totalframenumber,mathastext.TNF]{jku}
+\usetheme[darkmode,fancyfonts,totalframenumber,mathastext,TNF]{jku}
 
 %%
 %% Note that `nosectionpage' automatically sets `nosubsectionpage' and `nosubsubsectionpage'.
@@ -116,6 +116,7 @@
 
 
 \begin{frame}
+\frametitle{Code overview}
  \tableofcontents
 \end{frame}
 
@@ -180,12 +181,30 @@
 \section{Models}
 \begin{frame}
 \frametitle{Unrestrained Model}
-
+Can be derived from the material law $E(b,m) = \frac{\mu_0}{2} \|h\| + U(m)$, where $E$ is the internal energy
+of a ferromagnetic material and $\mu_0$ is the magnetic permiability of vacuum,
+$b$ the magnetic flux density, $m$ the magnetization and $h = \frac{1}{\mu_0}b - m$ the magnetic field strength,
+\begin{block}{Unrestrained model}
+Find
+ \begin{align}
+  \bar m = \arg \min_m U(m) - \langle h , m \rangle + \chi \|m - m_p\|
+ \end{align}
+\end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{Restrained Model}
-
+\begin{block}{Restrained Model}
+Find
+ \begin{align}
+  h_r = \arg \min_{u \in K(h)} S(u) - \langle m_p , u \rangle
+ \end{align}
+where $K(h) = \{u \in \mathbb R^3: \|u - h\| \leq \chi \}$
+\end{block}
+$S$ is chosen so that
+\begin{align}
+ \frac{\partial S}{\partial u}(h_r) = \bar m \Leftrightarrow \frac{\partial U}{\partial m}(\bar m) = h_r
+\end{align} which can be done by chosing $S$ as the Legendre-Fenchel conjugate of $U$
 
 
 \end{frame}
