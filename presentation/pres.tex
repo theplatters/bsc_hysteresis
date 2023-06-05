@@ -114,6 +114,70 @@
 
 \maketitle
 
+
+\begin{frame}
+ \tableofcontents
+\end{frame}
+
+\section{Theoretical foundations}
+\begin{frame}
+ \frametitle{Subdifferential}
+
+ \begin{itemize}
+    \item Let $f: \mathbb R^n \to \mathbb R$ be a continoous convex function
+    \item Subdifferential: $\partial f(x) = \{p \in \mathbb R^n: f(y) \geq f(x) + \langle p, y - x \rangle \, \forall y \in \mathbb R^n\}$
+    \item If $f \in C^1(\mathbb R^n,\mathbb R)$, then $\partial f(x) = \{\nabla f(x)\}$
+     \item Optimalty condition $x$ is a minimum of $f$ iff \begin{align}
+                                                        0 \in \partial f(x)
+                                                       \end{align}
+        holds.
+    \item Expamles:
+     \begin{itemize}
+      \item Subdifferential of $f(x): x \mapsto \|x\|$: $\partial f(0) = \{x : \|x\| \leq 1 \}$
+      \item Let $K = \{u \in \mathbb R^3 : \|u\| \leq \chi \} $ Subdifferential of $I_K(x):$
+      $$\partial I_K(x) = \begin{cases}\{0\} & \|x\| < \chi \\ \{p : p = \lambda x \,\, \forall \lambda > 0 \} & \|x\| = \chi \end{cases}$$
+     \end{itemize}
+
+
+
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lagrange function}
+ \begin{itemize}
+    \item Given the convex problem $\min_x f(x)$ s.t. $g(x) \leq 0 \,(CP)$. The Lagrange function is then defined as
+    \begin{equation}
+    \mathcal L_\lambda(x) = f(x) + \lambda g(x)
+    \end{equation}
+    For $x$ to be solution to $(CP)$ it is necessary and sufficent, that the following conditions are fulfilled:
+    \begin{align}
+        \lambda \geq 0, g(x) \leq 0, \lambda g(x) = 0 \\
+        0 \in \partial f(x) + \lambda \partial g(x) = (\nabla \mathcal L_\lambda(x))
+    \end{align}
+ \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Legendre-Fenchel Transform}
+ Let $f$ be a convex function. The Legendre-Fenchel transform, or convex conjugate is defined as
+ \begin{align}
+  f^*(x) =  \sup_y\{\langle x, y\rangle - f(y) \}
+ \end{align}
+ \begin{itemize}
+  \item $f^*$ is convex
+  \item If $f$ is differentiable and strictly convex, the equality $f^{**}(x) = f(x)$ holds.
+  \item $f'(x) = \arg \sup_y \langle x,y \rangle - f^*(y)$
+ \end{itemize}
+
+
+\end{frame}
+
+\section{Models}
 \begin{frame}
 \frametitle{Unrestrained Model}
 
@@ -121,21 +185,17 @@
 
 \begin{frame}
 \frametitle{Restrained Model}
-For the energy density $W$ in a magnetic material the equations \begin{align} 
-    &W = \frac{1}{2} \mu_0 h^2 + U(m) & \text{and} \label{eq:density} \\
-    &\dot W = \langle h, \dot b \rangle - \|r\dot m\| \label{eq:dtdensity}
-\end{align}
-hold, with $b = \mu_0(h + m)$ being the magnetic induction. Differentiating \eqref{eq:density} and combing it with \eqref{eq:dtdensity} yields 
-\begin{align}
- \mu_0 \langle h,\dot h \rangle + \langle \frac{\partial U}{\partial m}(m), \dot m \rangle &= \mu_0 \langle h,\dot h + \dot m \rangle - \|r \dot m\| \Leftrightarrow \\
- \langle h - \frac{1}{\mu_0} \frac{\partial U}{\partial m}(m), \dot m \rangle &= \|\frac{r}{\mu_0} \dot m \|
-\end{align}
+
 
 
 \end{frame}
 
+\section{Equivalence}
 \begin{frame}
 \frametitle{Equivalence}
+\begin{block}{Theorem}
+ The two proposed models are equivalent in the sense that if $\bar m$ minimizes the unrestrained model, then $h_r = \frac{\partial U}{\partial m}(\bar m)$ minimizes the restrained problem and inversely if $h_r$ minimizes the restrained problem, then $\bar m = \frac{\partial S}{\partial u}(h_r)$ minimizes the unrestrained problem.
+\end{block}
 
 \end{frame}
 
@@ -143,10 +203,6 @@ hold, with $b = \mu_0(h + m)$ being the magnetic induction. Differentiating \eqr
  \frametitle{Code overview}
 
 \end{frame}
-
-
-
-
 
 
 \end{document}

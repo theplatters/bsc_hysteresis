@@ -1,13 +1,152 @@
 [General]
 kile_livePreviewEnabled=true
-kile_livePreviewStatusUserSpecified=false
-kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=
+kile_livePreviewStatusUserSpecified=true
+kile_livePreviewTool=LivePreview-XeLaTeX
+lastDocument=presentation/pres.tex
+
+[document-settings,item:bac.tex]
+Bookmarks=
+Encoding=UTF-8
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
+
+[document-settings,item:presentation/main.tex]
+Bookmarks=
+Encoding=UTF-8
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
+
+[document-settings,item:presentation/pres.tex]
+Bookmarks=
+Encoding=UTF-8
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
 
 [item:aaa.tex]
 open=true
 order=-1
 
+[item:bac.tex]
+open=true
+order=0
+
 [item:bsc_hysteresis.kilepr]
 open=false
 order=-1
+
+[item:bsc_hysteresis.tex]
+open=false
+order=-1
+
+[item:lib.bib]
+open=false
+order=-1
+
+[item:literature/\x5bBeck\x5dFirst-OrderMethods.pdf]
+open=false
+order=-1
+
+[item:presentation/ACM-Reference-Format.bbx]
+open=false
+order=-1
+
+[item:presentation/ACM-Reference-Format.bst]
+open=false
+order=-1
+
+[item:presentation/ACM-Reference-Format.cbx]
+open=false
+order=-1
+
+[item:presentation/ACM-Reference-Format.dbx]
+open=false
+order=-1
+
+[item:presentation/LICENSE]
+open=false
+order=-1
+
+[item:presentation/README.md]
+open=false
+order=-1
+
+[item:presentation/abstract.tex]
+open=false
+order=-1
+
+[item:presentation/beamercolorthemejku.sty]
+open=false
+order=-1
+
+[item:presentation/beamerfontthemejku.sty]
+open=false
+order=-1
+
+[item:presentation/beamerthemejku.sty]
+open=false
+order=-1
+
+[item:presentation/main.aux]
+open=false
+order=-1
+
+[item:presentation/main.fdb_latexmk]
+open=false
+order=-1
+
+[item:presentation/main.fls]
+open=false
+order=-1
+
+[item:presentation/main.log]
+open=false
+order=-1
+
+[item:presentation/main.tex]
+open=true
+order=2
+
+[item:presentation/pres.tex]
+open=true
+order=1
+
+[item:presentation/references.bib]
+open=false
+order=-1
+
+[item:scribble.tex]
+open=false
+order=-1
+
+[view-settings,view=0,item:bac.tex]
+CursorColumn=24
+CursorLine=102
+Dynamic Word Wrap=false
+JumpList=
+TextFolding={"checksum":"98b2b04ef333f559b820631a9318e4ec97d695db","ranges":[]}
+ViMarks=
+
+[view-settings,view=0,item:presentation/main.tex]
+CursorColumn=0
+CursorLine=640
+Dynamic Word Wrap=false
+JumpList=
+TextFolding={"checksum":"ab48e3ec112412bcaf095358ef5799f0d4206406","ranges":[]}
+ViMarks=
+
+[view-settings,view=0,item:presentation/pres.tex]
+CursorColumn=13
+CursorLine=182
+Dynamic Word Wrap=false
+JumpList=
+TextFolding={"checksum":"a2a9693ea020de70c0d1a66e2b4a427def761e5d","ranges":[]}
+ViMarks=

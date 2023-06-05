@@ -1,0 +1,9 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'pres.blg'
+[44] biber:340> INFO - === Mo Jun  5, 2023, 00:54:34
+[53] Biber.pm:419> INFO - Reading 'pres.bcf'
+[90] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[98] bbl.pm:660> INFO - Writing 'pres.bbl' with encoding 'UTF-8'
+[98] bbl.pm:763> INFO - Output to pres.bbl
+[98] Biber.pm:131> WARN - The file 'pres.bcf' does not contain any citations!
+[98] Biber.pm:133> INFO - WARNINGS: 1
