@@ -1,0 +1,162 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\usepackage{biblatex}
+%opening
+\title{first model}
+\author{Franz Scharnreitner}
+
+\begin{document}
+
+\maketitle
+\section{Abstract}
+The modeling of hysteresis with energy based vector hysteresis models has the potential to provide results, that are both accurate and efficient to calculate. In the talk two models will be presented, both draw analogies to dry friction models and have a thermodynamic rational behind them, that other models often lack. The first one establishes a unrestricted non-smooth optimization problem. The second model proposes a smooth restricted optimization problem. With the assumption that models have strictly convex objective functions it can be shown, that the both models are indeed equivalent. After the equivalence is established some numerical experiments will be shown, that show that the models are not just equivalent in theory. The proximal gradient method and the newton method will be methods of interest in these experiments. 
+
+\section{Subdifferential}
+ \begin{itemize}
+    \item Let $f: \mathbb R^n \to \mathbb R$ be a continuous convex function
+    \item Subdifferential: $\partial f(x) = \{p \in \mathbb R^n: f(y) \geq f(x) + \langle p, y - x \rangle \, \forall y \in \mathbb R^n\}$
+
+    \item In 1-D every: Every vector under the graph
+    
+    \item If $f \in C^1(\mathbb R^n,\mathbb R)$, then $\partial f(x) = \{\nabla f(x)\}$
+     \item Optimality condition $x$ is a minimum of $f$ iff \begin{align}
+                                                        0 \in \partial f(x)
+                                                       \end{align}
+        holds.
+    \item Examples:
+     \begin{itemize}
+      \item Subdifferential of $f(x): x \mapsto \|x\|$: $\partial f(0) = \{x : \|x\| \leq 1 \}$
+      Proof with cauchy schwartz and $\|x\| = \sup_{y,\|y\| \leq 1} \langle y,x \rangle \leq \|y\|$
+      \item Let $K = \{u \in \mathbb R^3 : \|u\| \leq \chi \} $ Subdifferential of $I_K(x):$
+      $$\partial I_K(x) = \begin{cases}\{0\} & \|x\| < \chi \\ \{p : p = \lambda x \,\, \forall \lambda > 0 \} & \|x\| = \chi \end{cases}$$
+     \end{itemize}
+
+
+
+ \end{itemize} 
+
+ 
+\section{Lagrange function}
+ \begin{itemize}
+    \item Given the convex problem $\min_x f(x)$ s.t. $g(x) \leq 0 \,(CP)$. The Lagrange function is then defined as
+    \begin{equation}
+    \mathcal L_\lambda(x) = f(x) + \lambda g(x)
+    \end{equation}
+    For $x$ to be solution to $(CP)$ it is necessary and sufficient, that the following conditions are fulfilled:
+    \begin{align}
+        \lambda \geq 0, g(x) \leq 0, \lambda g(x) = 0 \\
+        0 \in \partial f(x) + \lambda \partial g(x) = (\nabla \mathcal L_\lambda(x))
+    \end{align}
+ \end{itemize} 
+
+ \section{Legendre-Fenchel Transform}
+ Let $f$ be a convex function. The Legendre-Fenchel transform, or convex conjugate is defined as
+ \begin{align}
+  f^*(x) =  \sup_y\{\langle x, y\rangle - f(y) \}
+ \end{align}
+ \begin{itemize}
+  \item $f^*$ is convex
+  \item If $f$ is differentiable and strictly convex, the equality $f^{**}(x) = f(x)$ holds.
+  \item $f'(x) = \arg \sup_y \langle x,y \rangle - f^*(y)$
+ \end{itemize} 
+
+
+\section{Unrestrained Model}
+
+For the energy density $W$ in a magnetic material the equation
+\begin{align}
+    W = \frac{1}{2} \mu_0 \|h\|^2 + U(m) \label{eq:density1} \\
+\end{align} holds ,where $h = \frac{1}{\mu_0} b - m$ and $b$ are magnetic field and magnetic induction $\mu_0$ the permiability of vacuum.
+Computing the dericative yields
+\begin{align} \label{eq:dt}
+\dot W = \mu_0 \langle h,\frac{1}{\mu_0} \dot b - \dot m \rangle + \langle \frac{\partial U}{m}(m), \dot m \rangle
+\end{align}
+Defining $h_r = \frac{1}{\mu_0} \frac{\partial U}{\partial m}(m)$ as the reversible part of $h = h_i + h_r$ allows us to
+rewrite \eqref{eq:dt} as
+\begin{align} \label{eq:objective}
+ \dot W = \langle h, \dot b \rangle - \langle \mu_0 h_i,\dot m \rangle
+\end{align}
+It is now proposed, that ,analogously to dry friction, \eqref{eq:dt} holds, when:
+\begin{align} \label{eq:dry}
+ \langle \mu_0 h_i,\dot m \rangle = \chi \|\dot m \|
+\end{align}
+
+Solving \eqref{eq:dry} can then be written as finding $\bar m$ s.t 
+\begin{align}
+\bar m = \arg \min_m U(m) - \langle m , h \rangle + \chi \|m - m_p\|
+\end{align}
+
+\section{Restrained Model}
+
+For the energy density $E$ in a magnetic material the equations
+\begin{align}
+    &E = \frac{1}{2} \mu_0 h^2 + U(m) & \text{and} \label{eq:density} \\
+    &\dot E= \langle h, \dot b \rangle - \|r\dot m\| \label{eq:dtdensity}
+\end{align}
+hold, with $b = \mu_0(h + m)$ being the magnetic induction. Differentiating \eqref{eq:density} and combing it with \eqref{eq:dtdensity} yields
+\begin{align}
+    \mu_0 \langle h,\dot h \rangle + \langle \frac{\partial U}{\partial m}(m), \dot m \rangle &= \mu_0 \langle h,\dot h + \dot m \rangle - \|r \dot m\| \Leftrightarrow \\
+    \langle h - \frac{1}{\mu_0} \frac{\partial U}{\partial m}(m), \dot m \rangle &= \|\frac{r}{\mu_0} \dot m \| \label{eq:4}
+\end{align}
+
+
+
+
+
+Let $\chi = \|\frac{r}{\mu_0}\|$, $h_r = f(m)$ and $h_i = h - h_r$, then \eqref{eq:4} can be further rew
+\begin{align}
+    \langle h_i, \dot m \rangle = \chi \|\dot m\|
+\end{align}
+This holds when $\dot m \in \partial I_{\tilde K}(h_i)$, where $I$ is the indicator
+function and $\tilde K := \{u \in \mathbb R^3: \|u\| \leq \chi\}$,
+or alternatively if $h_r \in K(h) = \{u \in R^3: \|h_r - h\| \leq \chi \}$ and $\langle \dot m, u - h_r \rangle \geq 0 \,\, \forall u \in K(h)$.
+We assume $S(u)$ is the Legendre Fenchel conjugate of $\frac{1}{\mu_0}$ of $U(m)$,
+which means, that $\frac{\partial S}{\partial u}(h_r) = m$. By using a pseude time stepping approch $\dot m$ can be approximated with $m - m_p$
+and thus we can write the discretisised problem
+as: Find $h_r \in K(h)$ so that $\langle \frac{\partial S}{\partial u}(h_r) - m_p,u - h_r \rangle \geq 0 \,\, \forall u \in K(h)$
+Which is again equivalent to \begin{align}\min_{u \in K(h)} S(u) - \langle u, m_p \rangle \end{align}
+
+
+\section{Equivalence}
+
+\begin{theorem}
+The two proposed models are equivalent in the sense that if $\bar m$ minimizes the unrestrained model, then $h_r = \frac{\partial U}{\partial m}(\bar m)$ minimizes the restrained problem and inversely if $h_r$ minimizes the restrained problem, then $\bar m = \frac{\partial S}{\partial u}(h_r)$ minimizes the unrestrained problem.
+\end{theorem}
+
+\begin{proof}
+Let $\mathcal L_\lambda(u) = S(u) - \langle u,m_p \rangle + \lambda(\|u - h\| - \chi)$ be the Lagragian of the restrained problem. 
+Let $h_r$ be a minimizer of the restrained problem. Then there exists $\bar \lambda \geq 0$, so that the following conditions holds:
+\begin{align}\label{eq:restictions}
+    &\bar \lambda (\|h_r - h\| - \chi) = 0
+\end{align}
+\begin{align}\label{eq:lagrange}
+    0 = \frac{\partial \mathcal L_{\bar \lambda}}{\partial u}(h_r) = \frac{\partial S}{\partial u}(h_r) - m_p + \bar \lambda \frac{h_r - g}{\|h_r - h\|} = m - m_p +\bar \lambda\frac{h_r -  h}{\|h_r - h\|}
+\end{align}
+The last equality holds, because of the Legendre-Fenchel property. 
+First assume $\lambda = 0$, then from \eqref{eq:lagrange} it follows, that $m-m_p = 0$. Also $\|\frac{\partial U}{\partial m}(\bar m) - h\| =\|h_r - h\| \leq \chi$ follows directly from the Legendre Fenchel property and the constraints. By combining these two properties we get that the optimality condition $\frac{\partial U}{\partial m}(\bar m) - h \in \partial \|\bar m - m_p\|$ is indeed fulfilled, because $\partial \|0\| = \{x \colon \|x\| \leq 1\}$
+Now let $\|h_r - h\| = \chi$. Inserting into \eqref{eq:lagrange} yields .$$m - m_p = - \frac{\lambda}{\chi}(h_r - h)$$
+Inserting into the optimality condition yields $\frac{\partial U}{\partial m} - h - \chi (\frac{\lambda}{\chi} \frac{h_r - h}{\|\frac{\lambda}{\chi} (h_r - h) \|}) = h_r  - h - (h_r - h) = 0$. So the optimality condition of the unrestrained problem is indeed fulfilled.
+
+Conversely, let $\bar m$ be a minimizer of the unrestrained problem and $h_r = \frac{\partial U}{\partial m}(\bar m)$. Then the optimality condition holds. So \begin{equation}\label{eq:optimality}
+    \frac{\partial U}{\partial m}(\bar m) - h = - \chi \partial\|\bar m - m_p\|
+\end{equation}
+Assume $\bar m = m_p$, then for $\lambda = 0$, we get that $\mathcal L_0(h_r) = \frac{\partial S}{\partial u}(h_r) - m_p = m - m_p = 0$
+Now let $m \neq m_p$, then the subdifferential only contains the derivative, and out of \eqref{eq:optimality} with the use of the Legendre-Fenchel conjugate one get's \begin{equation}
+   \frac{\partial U}{\partial m}(\bar m) - h = h_r - h = - \chi \frac{\bar m - m_p}{\|\bar m - m_p\|}
+\end{equation}
+So $\|h_r - h\| = \chi$, i.e \eqref{eq:restictions} is fulfilled for any $\lambda > 0$.  Also $$\mathcal L_{\|m - m_p\|}(h_r) =\bar m - m_p - \chi \|\bar m - m_p\|\frac{\bar m - m_p}{\|\bar m - m_p\|} (\chi \|\frac{\bar m - m_p}{\|\bar m - m_p\|}\|)^{-1} = 0$$
+\end{proof}
+
+
+\end{document}

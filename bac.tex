@@ -12,14 +12,6 @@
 
 \usepackage{amsthm}
 
-\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
-  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-  #1 % the function
-  \littletaller % pretend it's a little taller at normal size
-  \right|_{#2} % this is the delimiter
-  }}
-
-\newcommand{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}
 
 \date{}
 
@@ -123,11 +115,11 @@ Both models are motivated by an analogy with mechanics, i.e., a model for dry fr
 \subsection{Equivalence}
 
 \begin{theorem}
-f3The two proposed models are equivalent in the sense that if $\bar m$ minimizes the unrestrained model, then $h_r = \frac{\partial U}{\partial m}(\bar m)$ minimizes the restrained problem and inversely if $h_r$ minimizes the restrained problem, then $\bar m = \frac{\partial S}{\partial u}(h_r)$ minimizes the unrestrained problem.
+The two proposed models are equivalent in the sense that if $\bar m$ minimizes the unrestrained model, then $h_r = \frac{\partial U}{\partial m}(\bar m)$ minimizes the restrained problem and inversely if $h_r$ minimizes the restrained problem, then $\bar m = \frac{\partial S}{\partial u}(h_r)$ minimizes the unrestrained problem.
 \end{theorem}
 
 \begin{proof}
-Let $\mathcal L_\lambda(u) = S(u) - \langle u,m_p \rangle + \lambda(\|u - h\| - \chi)$ be the Lagragian of the restrained problem. 
+Let $\mathcal L_\lambda(u) = S(u) - \langle u,m_p \rangle + \lambda(\|u - h\| - \chi)$ be the Lagrangian of the restrained problem. 
 Let $h_r$ be a minimizer of the restrained problem. Then there exists $\bar \lambda \geq 0$, so that the following conditions holds:
 \begin{align}\label{eq:restictions}
     &\bar \lambda (\|h_r - h\| - \chi) = 0
