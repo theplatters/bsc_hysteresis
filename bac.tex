@@ -128,7 +128,7 @@ Let $h_r$ be a minimizer of the restrained problem. Then there exists $\bar \lam
     0 = \frac{\partial \mathcal L_{\bar \lambda}}{\partial u}(h_r) = \frac{\partial S}{\partial u}(h_r) - m_p + \bar \lambda \frac{h_r - g}{\|h_r - h\|} = m - m_p +\bar \lambda\frac{h_r -  h}{\|h_r - h\|}
 \end{align}
 The last equality holds, because of the Legendre-Fenchel property. 
-First assume $\lambda = 0$, then from \eqref{eq:lagrange} it follows, that $m-m_p = 0$. Also $\|\frac{\partial U}{\partial m}(\bar m) - h\| =\|h_r - h\| \leq \chi$ follows directly from the Legendre Fenchel property and the constraints. By combining these two properties we get that the optimality condition $\frac{\partial U}{\partial m}(\bar m) - h \in \partial \|\bar m - m_p\|$ is indeed fulfilled, because $\partial \|0\| = \{x \colon \|x\| \leq 1\}$
+First assume $\bar \lambda = 0$, then from \eqref{eq:lagrange} it follows, that $m-m_p = 0$. Also $\|\frac{\partial U}{\partial m}(\bar m) - h\| =\|h_r - h\| \leq \chi$ follows directly from the Legendre Fenchel property and the constraints. By combining these two properties we get that the optimality condition $\frac{\partial U}{\partial m}(\bar m) - h \in \partial \|\bar m - m_p\|$ is indeed fulfilled, because $\partial \|0\| = \{x \colon \|x\| \leq 1\}$
 Now let $\|h_r - h\| = \chi$. Inserting into \eqref{eq:lagrange} yields .$$m - m_p = - \frac{\lambda}{\chi}(h_r - h)$$
 Inserting into the optimality condition yields $\frac{\partial U}{\partial m} - h - \chi (\frac{\lambda}{\chi} \frac{h_r - h}{\|\frac{\lambda}{\chi} (h_r - h) \|}) = h_r  - h - (h_r - h) = 0$. So the optimality condition of the unrestrained problem is indeed fulfilled.
 

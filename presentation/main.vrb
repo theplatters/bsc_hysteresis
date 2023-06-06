@@ -1,0 +1,11 @@
+\frametitle{Language}
+\begin{itemize}
+\item Use the \textverb{otherlanguage} environment to temporarily change the document language in your presentation.
+\item Changing the document language to \textverb{german} (or better \textverb{ngerman}) also changes the language in logos and the imprint on title pages and in footers.
+\end{itemize}
+
+\begin{lstlisting}[language={[LaTeX]TeX},numbers=none]
+\begin{otherlanguage}{ngerman}
+
+\end{otherlanguage}
+\end{lstlisting}

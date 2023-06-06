@@ -54,6 +54,12 @@ encoding=
 highlight=
 mode=
 
+[item:notes.tex]
+archive=true
+encoding=
+highlight=
+mode=
+
 [item:presentation/ACM-Reference-Format.bbx]
 archive=true
 encoding=

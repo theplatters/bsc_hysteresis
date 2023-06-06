@@ -126,7 +126,7 @@
 
  \begin{itemize}
     \item Let $f: \mathbb R^n \to \mathbb R$ be a continuous convex function
-    \item Subdifferential: $\partial f(x) = \{p \in \mathbb R^n: f(y) \geq f(x) + \langle p, y - x \rangle \, \forall y \in \mathbb R^n\}$
+    \item Subdifferential: $\partial f(x) = \{p \in \mathbb R^n: f(y) \geq f(x) + \langle p, y - x \rangle \, \forall y \in \text{dom}\, f\}$
     \item If $f \in C^1(\mathbb R^n,\mathbb R)$, then $\partial f(x) = \{\nabla f(x)\}$
      \item Optimality condition: $x$ is a minimum of $f$ iff \begin{align}
                                                         0 \in \partial f(x)

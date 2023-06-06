@@ -1,0 +1,12 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Prerequisites}{2}{0}{1}
+\beamer@sectionintoc {2}{Getting Started}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Theme Options}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Title Slide \& Slide Footers}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{Basic Elements}{19}{0}{2}
+\beamer@sectionintoc {3}{Colors}{31}{0}{3}
+\beamer@sectionintoc {4}{Special Frames}{34}{0}{4}
+\beamer@sectionintoc {5}{General \LaTeX /Beamer Features}{50}{0}{5}
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {6}{Ending the Presentation}{58}{0}{6}

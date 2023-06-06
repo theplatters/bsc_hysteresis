@@ -16,5 +16,114 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{doi:10.1137/1.9781611974997}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7e285058a4af1ce645d910e3951d7b82}{%
+           family={Beck},
+           familyi={B\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Philadelphia, PA}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics}%
+      }
+      \strng{namehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{fullhash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{bibnamehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{authorbibnamehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{authornamehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{authorfullhash}{7e285058a4af1ce645d910e3951d7b82}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{First-Order Methods in Optimization}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1137/1.9781611974997
+      \endverb
+      \verb{urlraw}
+      \verb https://epubs.siam.org/doi/abs/10.1137/1.9781611974997
+      \endverb
+      \verb{url}
+      \verb https://epubs.siam.org/doi/abs/10.1137/1.9781611974997
+      \endverb
+    \endentry
+    \entry{inproceedings}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=12e2a39f290f67f662935f79a1299c00}{%
+           family={Kaltenbacher},
+           familyi={K\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7dbb22721f42ad087e28f32a033684f5}{%
+           family={Roppert},
+           familyi={R\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0a87ac38feef2aa344899c5470c230e8}{%
+           family={Domenig},
+           familyi={D\bibinitperiod},
+           given={Lukas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e76c56213420a332f912d4622ecce842}{%
+           family={Egger},
+           familyi={E\bibinitperiod},
+           given={Herbert},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3249e42d9649f936564179b60d22168}
+      \strng{fullhash}{b3249e42d9649f936564179b60d22168}
+      \strng{bibnamehash}{b3249e42d9649f936564179b60d22168}
+      \strng{authorbibnamehash}{b3249e42d9649f936564179b60d22168}
+      \strng{authornamehash}{b3249e42d9649f936564179b60d22168}
+      \strng{authorfullhash}{b3249e42d9649f936564179b60d22168}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Comparison of Energy Based Hysteresis Models}
+      \field{year}{2022}
+      \field{pages}{1\bibrangedash 4}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/COMPUMAG55718.2022.9827509
+      \endverb
+    \endentry
+    \entry{rockafellar1997convex}{book}{}
+      \name{author}{1}{}{%
+        {{hash=18de24308c36b3348b1477a2f7aa442f}{%
+           family={Rockafellar},
+           familyi={R\bibinitperiod},
+           given={R\bibnamedelima Tyrrell},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton university press}%
+      }
+      \strng{namehash}{18de24308c36b3348b1477a2f7aa442f}
+      \strng{fullhash}{18de24308c36b3348b1477a2f7aa442f}
+      \strng{bibnamehash}{18de24308c36b3348b1477a2f7aa442f}
+      \strng{authorbibnamehash}{18de24308c36b3348b1477a2f7aa442f}
+      \strng{authornamehash}{18de24308c36b3348b1477a2f7aa442f}
+      \strng{authorfullhash}{18de24308c36b3348b1477a2f7aa442f}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Convex analysis}
+      \field{volume}{11}
+      \field{year}{1997}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

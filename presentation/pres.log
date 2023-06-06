@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.6.4)  5 JUN 2023 09:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.6.6)  6 JUN 2023 11:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1540,7 +1540,96 @@ script=latn;language=dflt;slant=0.2;"
 script=latn;language=dflt;slant=0.2;embolden=1.5;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-)
+
+(/usr/share/texmf-dist/tex/latex/mathastext/mathastext.sty
+Package: mathastext 2022/11/04 v1.3y Use the text font in math mode (JFB)
+\mst@exists@muskip=\muskip18
+\mst@forall@muskip=\muskip19
+\mst@prime@muskip=\muskip20
+\mst@do@nonletters=\toks63
+\mst@do@easynonletters=\toks64
+\mst@do@az=\toks65
+\mst@do@AZ=\toks66
+\symmtoperatorfont=\mathgroup10
+\symmtletterfont=\mathgroup11
+
+** will use Euler font; command \MTEulerScale
+\symmteulervm=\mathgroup12
+** ! and ?
+** punctuation: , . : ; and \colon
+LaTeX Info: Redefining \rightarrowfill on input line 847.
+LaTeX Info: Redefining \leftarrowfill on input line 852.
+** + and =
+** adding = ; and + to \nfss@catcodes
+** parentheses ( ) [ ] and slash /
+** alldelims: < > \backslash \setminus | \vert \mid \{ and \}
+LaTeX Font Info:    Redeclaring math delimiter \backslash on input line 989.
+LaTeX Font Info:    Redeclaring math symbol \setminus on input line 1001.
+LaTeX Info: Redefining \models on input line 1010.
+** \# \mathdollar \% \& 
+** \imath and \jmath 
+LaTeX Font Info:    Overwriting math alphabet `\mathnormalbold' in version `nor
+mal'
+(Font)                  TU/PublicSans(0)/b/it --> TU/PublicSans(0)/b/it on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\mathnormalbold' in version `bol
+d'
+(Font)                  TU/PublicSans(0)/b/it --> TU/PublicSans(0)/b/it on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting symbol font `mtletterfont' in version `normal'
+(Font)                  TU/PublicSans(0)/m/it --> TU/PublicSans(0)/m/it on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting symbol font `mtletterfont' in version `bold'
+(Font)                  TU/PublicSans(0)/m/it --> TU/PublicSans(0)/b/it on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting symbol font `mtoperatorfont' in version `normal
+'
+(Font)                  TU/PublicSans(0)/m/n --> TU/PublicSans(0)/m/n on input 
+line 2370.
+LaTeX Font Info:    Overwriting symbol font `mtoperatorfont' in version `bold'
+(Font)                  TU/PublicSans(0)/m/n --> TU/PublicSans(0)/b/n on input 
+line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathbf' in version `normal'
+(Font)                  TU/PublicSans(0)/b/n --> TU/PublicSans(0)/b/n on input 
+line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathbf' in version `bold'
+(Font)                  TU/PublicSans(0)/b/n --> TU/PublicSans(0)/b/n on input 
+line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathit' in version `normal'
+(Font)                  TU/PublicSans(0)/m/it --> TU/PublicSans(0)/m/it on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathit' in version `bold'
+(Font)                  TU/PublicSans(0)/m/it --> TU/PublicSans(0)/b/it on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathsf' in version `normal'
+(Font)                  TU/PublicSans(0)/m/n --> TU/PublicSans(0)/m/n on input 
+line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathsf' in version `bold'
+(Font)                  TU/PublicSans(0)/m/n --> TU/PublicSans(0)/b/n on input 
+line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathtt' in version `normal'
+(Font)                  TU/Inconsolata(0)/m/n --> TU/Inconsolata(0)/m/n on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\Mathtt' in version `bold'
+(Font)                  TU/Inconsolata(0)/m/n --> TU/Inconsolata(0)/b/n on inpu
+t line 2370.
+LaTeX Font Info:    Overwriting symbol font `mteulervm' in version `bold'
+(Font)                  U/zeur/m/n --> U/zeur/b/n on input line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\MathEulerBold' in version `norm
+al'
+(Font)                  U/zeur/b/n --> U/zeur/b/n on input line 2370.
+LaTeX Font Info:    Overwriting math alphabet `\MathEulerBold' in version `bold
+'
+(Font)                  U/zeur/b/n --> U/zeur/b/n on input line 2370.
+** Latin letters in the `normal' (resp. `bold') math versions are now
+** set up to use the fonts TU/PublicSans(0)/m(b)/it
+** Other characters (digits, ...) and \log-like names will be
+** typeset with the n shape.
+** \hbar
+** minus as endash
+** Greek letters will use the Euler font. Use \MathastextEulerScale{<factor>} t
+o scale the font.
+))
 \jkubeamer@logoblack@K=\box90
 File: ./logos/jku_k_black.pdf Graphic file (type pdf)
 <use ./logos/jku_k_black.pdf>
@@ -1572,8 +1661,7 @@ File: ./logos/jku_de_black_wide.pdf Graphic file (type pdf)
 \jkubeamer@footerlogo@partner@color=\box102
 \jkubeamer@footerlogo@partner@white=\box103
 \jkubeamer@kv@offset=\skip92
-)
-(/usr/share/texmf-dist/tex/latex/csquotes/csquotes.sty
+) (/usr/share/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@reset=\count382
 \csq@gtype=\count383
@@ -1581,7 +1669,7 @@ Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@qlevel=\count385
 \csq@maxlvl=\count386
 \csq@tshold=\count387
-\csq@ltx@everypar=\toks63
+\csq@ltx@everypar=\toks67
 
 (/usr/share/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2022-09-14 v5.2n csquotes generic definitions (JAW)
@@ -1783,10 +1871,10 @@ File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 \c@biburlnumpenalty=\count512
 \c@biburlucpenalty=\count513
 \c@biburllcpenalty=\count514
-\biburlbigskip=\muskip18
-\biburlnumskip=\muskip19
-\biburlucskip=\muskip20
-\biburllcskip=\muskip21
+\biburlbigskip=\muskip21
+\biburlnumskip=\muskip22
+\biburlucskip=\muskip23
+\biburllcskip=\muskip24
 \c@smartand=\count515
 )
 Package biblatex Info: Trying to load bibliography style 'ACM-Reference-Format'
@@ -2042,6 +2130,8 @@ put line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/Merriweather(0)/m/it --> OT1/Merriweather(0)/b/it o
 n input line 99.
+Package mathastext Info: current meaning of amsmath \resetMathstrut@ saved on i
+nput line 99.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -2084,76 +2174,91 @@ Package biblatex Info: Reference segment=0 on input line 99.
 ] [3
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 140.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 146.
 LaTeX Font Info:    Trying to load font information for OT1+Merriweather(0) on 
-input line 140.
-LaTeX Font Info:    No file OT1Merriweather(0).fd. on input line 140.
+input line 146.
+LaTeX Font Info:    No file OT1Merriweather(0).fd. on input line 146.
 
 
 LaTeX Font Warning: Font shape `OT1/Merriweather(0)/m/up' undefined
-(Font)              using `OT1/cmr/m/n' instead on input line 140.
+(Font)              using `OT1/cmr/m/n' instead on input line 146.
 
 
 LaTeX Font Warning: Font shape `OT1/Merriweather(0)/m/up' in size <5.5> not ava
 ilable
-(Font)              size <5> substituted on input line 140.
+(Font)              size <5> substituted on input line 146.
 
-LaTeX Font Info:    Trying to load font information for U+eur on input line 140
+LaTeX Font Info:    Trying to load font information for U+eur on input line 146
 .
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueur.fd
 File: ueur.fd 2013/01/14 v3.01 Euler Roman
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-140.
+146.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-140.
+146.
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <11> on input line 140.
+(Font)              <11> on input line 146.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.69997> on input line 140.
+(Font)              <7.69997> on input line 146.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.5> on input line 140.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 140
+(Font)              <5.5> on input line 146.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 146
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 140
+LaTeX Font Info:    Trying to load font information for U+msb on input line 146
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+euf on input line 140
+LaTeX Font Info:    Trying to load font information for U+euf on input line 146
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-LaTeX Font Info:    Trying to load font information for U+eus on input line 140
+LaTeX Font Info:    Trying to load font information for U+eus on input line 146
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 )
 LaTeX Font Info:    Trying to load font information for U+euex on input line 14
-0.
+6.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueuex.fd
 File: ueuex.fd 2013/01/14 v3.01 Euler extra symbols
 )
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 140.
+(Font)              size <5> substituted on input line 146.
+
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 14
+6.
+(/usr/share/texmf-dist/tex/latex/eulervm/uzeur.fd
+File: uzeur.fd 2005/01/11 v4.0 (WaS)
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 146.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 146.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 146.
+
+Overfull \vbox (3.92146pt too high) detected at line 146
+ []
 
 [4
 
@@ -2162,6 +2267,26 @@ LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
 ] [6
 
 ] [7
+
+] [8
+
+]
+Overfull \vbox (3.29771pt too high) detected at line 211
+ []
+
+[9
+
+] [10
+
+] [11
+
+] [12
+
+] [13
+
+] [14
+
+] [15
 
 ]
 \tf@nav=\write7
@@ -2182,18 +2307,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `pres.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: EEA13F76F1E07960B1929B60F1E8FF74;536.
 Package logreq Info: Writing requests to 'pres.run.xml'.
 \openout1 = `pres.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53181 strings out of 476683
- 1279249 string characters out of 5809791
- 2188723 words of memory out of 5000000
- 72377 multiletter control sequences out of 15000+600000
- 519516 words of font info for 120 fonts, out of 8000000 for 9000
+ 54592 strings out of 476683
+ 1301732 string characters out of 5809791
+ 2203303 words of memory out of 5000000
+ 73767 multiletter control sequences out of 15000+600000
+ 526391 words of font info for 155 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
- 128i,15n,125p,1129b,3956s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,125p,1129b,5361s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on pres.pdf (7 pages).
+Output written on pres.pdf (15 pages).
