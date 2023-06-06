@@ -13,6 +13,15 @@ Indentation Mode=normal
 Mode=LaTeX
 Mode Set By User=false
 
+[document-settings,item:firstmodel.tex]
+Bookmarks=
+Encoding=UTF-8
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
+
 [document-settings,item:presentation/main.tex]
 Bookmarks=
 Encoding=UTF-8
@@ -46,6 +55,10 @@ order=-1
 [item:bsc_hysteresis.tex]
 open=false
 order=-1
+
+[item:firstmodel.tex]
+open=true
+order=3
 
 [item:lib.bib]
 open=false
@@ -132,7 +145,15 @@ CursorColumn=24
 CursorLine=102
 Dynamic Word Wrap=false
 JumpList=
-TextFolding={"checksum":"98b2b04ef333f559b820631a9318e4ec97d695db","ranges":[]}
+TextFolding={"checksum":"0ccf2409526dd71701254a5947c8e346d49cf916","ranges":[]}
+ViMarks=
+
+[view-settings,view=0,item:firstmodel.tex]
+CursorColumn=0
+CursorLine=37
+Dynamic Word Wrap=false
+JumpList=
+TextFolding={"checksum":"063d6ca5c295e3311faeddc66b7e5ccdea186c7e","ranges":[]}
 ViMarks=
 
 [view-settings,view=0,item:presentation/main.tex]
@@ -144,9 +165,9 @@ TextFolding={"checksum":"ab48e3ec112412bcaf095358ef5799f0d4206406","ranges":[]}
 ViMarks=
 
 [view-settings,view=0,item:presentation/pres.tex]
-CursorColumn=13
-CursorLine=182
+CursorColumn=22
+CursorLine=220
 Dynamic Word Wrap=false
 JumpList=
-TextFolding={"checksum":"a2a9693ea020de70c0d1a66e2b4a427def761e5d","ranges":[]}
+TextFolding={"checksum":"3048e1ada9d5bf05e01d9a8c0790f0797c0523c9","ranges":[]}
 ViMarks=
