@@ -122,17 +122,17 @@
 
 \section{Theoretical foundations}
 \begin{frame}
- \frametitle{Subdifferential}
+ \frametitle{Subdifferential \cite{rockafellar1997convex}}
 
  \begin{itemize}
-    \item Let $f: \mathbb R^n \to \mathbb R$ be a continoous convex function
+    \item Let $f: \mathbb R^n \to \mathbb R$ be a continuous convex function
     \item Subdifferential: $\partial f(x) = \{p \in \mathbb R^n: f(y) \geq f(x) + \langle p, y - x \rangle \, \forall y \in \mathbb R^n\}$
     \item If $f \in C^1(\mathbb R^n,\mathbb R)$, then $\partial f(x) = \{\nabla f(x)\}$
-     \item Optimalty condition $x$ is a minimum of $f$ iff \begin{align}
+     \item Optimality condition: $x$ is a minimum of $f$ iff \begin{align}
                                                         0 \in \partial f(x)
                                                        \end{align}
         holds.
-    \item Expamles:
+    \item Examples:
      \begin{itemize}
       \item Subdifferential of $f(x): x \mapsto \|x\|$: $\partial f(0) = \{x : \|x\| \leq 1 \}$
       \item Let $K = \{u \in \mathbb R^3 : \|u\| \leq \chi \} $ Subdifferential of $I_K(x):$
@@ -141,30 +141,30 @@
 
 
 
- \end{itemize}
+ \end{itemize} 
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Lagrange function}
+\frametitle{Lagrange function \cite{rockafellar1997convex}}
  \begin{itemize}
     \item Given the convex problem $\min_x f(x)$ s.t. $g(x) \leq 0 \,(CP)$. The Lagrange function is then defined as
     \begin{equation}
     \mathcal L_\lambda(x) = f(x) + \lambda g(x)
     \end{equation}
-    For $x$ to be solution to $(CP)$ it is necessary and sufficent, that the following conditions are fulfilled:
+    For $x$ to be solution to $(CP)$ it is necessary and sufficient, that the following conditions are fulfilled:
     \begin{align}
         \lambda \geq 0, g(x) \leq 0, \lambda g(x) = 0 \\
         0 \in \partial f(x) + \lambda \partial g(x) = (\nabla \mathcal L_\lambda(x))
     \end{align}
- \end{itemize}
+ \end{itemize} 
 
 
 \end{frame}
 
-\begin{frame}
- \frametitle{Legendre-Fenchel Transform}
+\begin{frame} 
+ \frametitle{Legendre-Fenchel Transform \cite{doi:10.1137/1.9781611974997}}
  Let $f$ be a convex function. The Legendre-Fenchel transform, or convex conjugate is defined as
  \begin{align}
   f^*(x) =  \sup_y\{\langle x, y\rangle - f(y) \}
@@ -173,16 +173,16 @@
   \item $f^*$ is convex
   \item If $f$ is differentiable and strictly convex, the equality $f^{**}(x) = f(x)$ holds.
   \item $f'(x) = \arg \sup_y \langle x,y \rangle - f^*(y)$
- \end{itemize}
+ \end{itemize} 
 
 
 \end{frame}
 
 \section{Models}
 \begin{frame}
-\frametitle{Unrestrained Model}
+\frametitle{Unrestrained Model \cite{inproceedings}}
 Can be derived from the material law $E(b,m) = \frac{\mu_0}{2} \|h\| + U(m)$, where $E$ is the internal energy
-of a ferromagnetic material and $\mu_0$ is the magnetic permiability of vacuum,
+of a ferromagnetic material and $\mu_0$ is the magnetic permeability of vacuum,
 $b$ the magnetic flux density, $m$ the magnetization and $h = \frac{1}{\mu_0}b - m$ the magnetic field strength,
 \begin{block}{Unrestrained model}
 Find
@@ -193,7 +193,7 @@ Find
 \end{frame}
 
 \begin{frame}
-\frametitle{Restrained Model}
+\frametitle{Restrained Model \cite{inproceedings}}
 \begin{block}{Restrained Model}
 Find
  \begin{align}
@@ -204,7 +204,8 @@ where $K(h) = \{u \in \mathbb R^3: \|u - h\| \leq \chi \}$
 $S$ is chosen so that
 \begin{align}
  \frac{\partial S}{\partial u}(h_r) = \bar m \Leftrightarrow \frac{\partial U}{\partial m}(\bar m) = h_r
-\end{align} which can be done by chosing $S$ as the Legendre-Fenchel conjugate of $U$
+\end{align} which can be accomplished by choosing $S$ as the Legendre-Fenchel conjugate of $U$
+\cite{inproceedings}
 
 
 \end{frame}
@@ -218,11 +219,42 @@ $S$ is chosen so that
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Proof}
+
+\begin{itemize}
+    \item Restrained problem: $$h_r = \arg \min_{u \in K(h)} S(u) - \langle m_p , u \rangle$$
+    \item Unrestrained problem: $$\bar m = \arg \min_m U(m) - \langle h , m \rangle + \chi \|m - m_p\|$$
+    \item Recall: 
+    \begin{itemize}
+        \item Subdifferential of $f(x): x \mapsto \|x\|$: $\partial f(0) = \{x : \|x\| \leq 1 \}$
+        \item Lagrange optimality condition
+        \item $\frac{\partial S}{\partial u}(h_r) = \bar m \Leftrightarrow \frac{\partial U}{\partial m}(\bar m)$
+    \end{itemize}
+    
+\end{itemize}
+\end{frame}
+
 \section{Code overview}
 \begin{frame}
  \frametitle{Code overview}
-
+  \begin{itemize}
+      \item Two methods have been implemented in Julia so far.
+      \begin{itemize}
+          \item The restrained problem is first solved using a global newton method, the solution is checked, if it is in $K(h)$ and if not it must be on $\partial K(h)$ and newton method is run again, with a parametrization in sphere coordinates
+          \item For the restrained problem the proximal gradient method is implemented
+      \end{itemize}
+      \item We can verify the equivalence for the test functions 
+      \begin{align}
+          U(m) &= m^T A m + b^T m - c \\
+          S(u) &= \frac{1}{2} (m - b)^T A^{-1} (m-b) + c
+      \end{align}
+  \end{itemize}
 \end{frame}
 
-
+\begin{frame}[allowframebreaks]{References}
+%\setbeamerfont{bibliography item}{size={\footnotesize}}
+%\AtNextBibliography{\footnotesize}
+\printbibliography
+\end{frame}
 \end{document}
